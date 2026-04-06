@@ -1,6 +1,7 @@
 import boto3
 
-ec2 = boto3.client('ec2', region_name='us-east-1')
+session = boto3.Session(region_name='us-east-1')
+ec2 = session.client('ec2')
 
 response = ec2.describe_instances()
 
