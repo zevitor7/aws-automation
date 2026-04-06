@@ -1,4 +1,4 @@
-\# 🚀 Automação AWS com Python
+# 🚀 Automação AWS com Python
 
 
 
