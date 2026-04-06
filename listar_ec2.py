@@ -4,9 +4,6 @@ ec2 = boto3.client('ec2', region_name='us-east-1')
 
 response = ec2.describe_instances()
 
-for reservation in response['Reservations']:
-    for instance in reservation['Instances']:
-        print("ID:", instance['InstanceId'])
-        print("Estado:", instance['State']['Name'])
-        print("Tipo:", instance['InstanceType'])
-        print("-" * 30)
+for r in response['Reservations']:
+    for i in r['Instances']:
+        print(i['InstanceId'], i['State']['Name'])
