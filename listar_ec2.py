@@ -1,6 +1,9 @@
 import boto3
-import os
 
-os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
+ec2 = boto3.client('ec2', region_name='us-east-1')
 
-ec2 = boto3.client('ec2')
+response = ec2.describe_instances()
+
+for r in response['Reservations']:
+    for i in r['Instances']:
+        print(i['InstanceId'], i['State']['Name'])
